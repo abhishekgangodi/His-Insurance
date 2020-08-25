@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,6 +17,10 @@ import lombok.Data;
 @Data
 @Table(name = "ACCOUNT_REGISTRATION")
 public class AccountRegistrationEntity {
+	
+	@Id
+	@Column(name="ACCOUNT_ID")
+	Integer acId;
 
 	@Column(name = "FIRST_NAME")
 	String firstName;
@@ -33,9 +38,10 @@ public class AccountRegistrationEntity {
 	String role;
 	
 	@Column(name="LOCK_STATUS")
-	String lock_status;
+	String lockStatus;
 	
-	
+	@Column(name="DELETE_SW")
+	String deleteStatus;
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.DATE)
